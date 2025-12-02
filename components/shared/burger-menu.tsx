@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -13,6 +13,14 @@ import phoneWhite from "@/assets/icons/phone-white.svg";
 export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const closeMenu = () => setIsOpen(false);
+
+  const scrollToFooter = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    closeMenu();
+    setTimeout(() => document.getElementById("footer")!.scrollIntoView({ behavior: "smooth" }), 500);
+  };
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -23,10 +31,6 @@ export const BurgerMenu = () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
-
-  const closeMenu = () => setIsOpen(false);
-
-  console.log(isOpen);
 
   return (
     <>
@@ -67,14 +71,15 @@ export const BurgerMenu = () => {
           <Link href="#preturi" onClick={closeMenu} className="group default-transition py-2">
             <span className="link">Prețuri</span>
           </Link>
-          <Link href="#recenzii" onClick={closeMenu} className="group default-transition py-2">
-            <span className="link">Recenzii</span>
+          <Link href="/" onClick={scrollToFooter} className="group default-transition py-2">
+            <span className="link">Contacte</span>
           </Link>
           <div className="mt-6">
             <AppButton
               label="Contactează-ne"
               onClick={closeMenu}
               iconPosition="left"
+              linkRef="tel:+37369640892"
               icon={<Image src={phoneWhite} alt={"Phone white"} className={"w-3.5"} />}
             />
           </div>
