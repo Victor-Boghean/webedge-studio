@@ -47,6 +47,7 @@ export const PricingCard = (props: PricingCardProps) => {
           <AppButton
             label={"Solicită ofertă"}
             className={cn("w-full bg-black/80 shadow-[0_4px_20px_rgba(0,0,0,0.30)]", popular && "bg-black")}
+            linkRef={"tel:+37369640892"}
           />
         </div>
       </div>

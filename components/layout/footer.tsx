@@ -4,6 +4,7 @@ import Link from "next/link";
 import logo from "@/assets/images/branding/webedge-logo.svg";
 import mail from "@/assets/icons/mail-icon.svg";
 import phone from "@/assets/icons/phone-icon.svg";
+import instagram from "@/assets/icons/instagram.svg";
 
 export const Footer = () => (
   <footer className="bg-main-gray overflow-hidden py-20" id="footer">
@@ -27,6 +28,15 @@ export const Footer = () => (
               className="font-sora hover:text-primary/70 text-sm transition-all duration-150 ease-in-out hover:cursor-pointer"
             >
               victor.boghean15@gmail.com
+            </Link>
+          </div>
+          <div className={"flex items-center gap-4"}>
+            <Image src={instagram} alt={"Instagram icon"} />
+            <Link
+              href={"https://www.instagram.com/webedge.studio/"}
+              className="font-sora hover:text-primary/70 text-sm transition-all duration-150 ease-in-out hover:cursor-pointer"
+            >
+              webedge.studio
             </Link>
           </div>
         </div>
