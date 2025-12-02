@@ -1,4 +1,5 @@
 "use client";
+import React, { MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,6 +11,11 @@ import { BurgerMenu } from "@/components/shared/burger-menu";
 import logo from "@/assets/images/branding/webedge-logo.svg";
 
 export const Header = () => {
+  const scrollToFooter = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById("footer")!.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <header
       className={cn(
@@ -33,13 +39,13 @@ export const Header = () => {
         <Link href="/" className={"group default-transition"}>
           <span className={"link"}>Prețuri</span>
         </Link>
-        <Link href="/" className={"group default-transition"}>
-          <span className={"link"}>Recenzii</span>
+        <Link href="/" onClick={scrollToFooter} className={"group default-transition"}>
+          <span className={"link"}>Contacte</span>
         </Link>
       </nav>
 
       <div className="hidden justify-self-end font-medium lg:block">
-        <AppButton label={"Contactează-ne"} />
+        <AppButton label={"Contactează-ne"} linkRef="tel:+37369640892" />
       </div>
 
       <BurgerMenu />

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ButtonHTMLAttributes, ReactNode } from "react";
@@ -8,10 +10,19 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   iconPosition?: "left" | "right";
   iconClassName?: string;
+  linkRef?: string;
 }
 
-export function AppButton({ label, icon, iconPosition = "left", className, iconClassName, ...props }: AppButtonProps) {
-  return (
+export function AppButton({
+  label,
+  icon,
+  iconPosition = "left",
+  className,
+  iconClassName,
+  linkRef,
+  ...props
+}: AppButtonProps) {
+  const renderButton = () => (
     <Button
       className={cn(
         "font-open default-transition gap-2.5 bg-black/75 text-xs font-semibold hover:-translate-y-[1px] hover:cursor-pointer hover:bg-black/70 md:text-sm",
@@ -28,4 +39,6 @@ export function AppButton({ label, icon, iconPosition = "left", className, iconC
       {icon && iconPosition === "right" && <span className={cn("icon", iconClassName)}>{icon}</span>}
     </Button>
   );
+
+  return linkRef ? <Link href={linkRef}>{renderButton()}</Link> : renderButton();
 }

@@ -1,12 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import logo from "@/assets/images/branding/webedge-logo.svg";
 import mail from "@/assets/icons/mail-icon.svg";
 import phone from "@/assets/icons/phone-icon.svg";
-import Link from "next/link";
 
 export const Footer = () => (
-  <footer className="bg-main-gray overflow-hidden py-20">
+  <footer className="bg-main-gray overflow-hidden py-20" id="footer">
     <div className={"container"}>
       <div className="flex flex-col gap-4 pb-4">
         <div className="font-sora text-xl font-semibold">Contacte</div>
@@ -26,7 +26,7 @@ export const Footer = () => (
               href={"mailto:victor.boghean15@gmail.com"}
               className="font-sora hover:text-primary/70 text-sm transition-all duration-150 ease-in-out hover:cursor-pointer"
             >
-              webedgestudio@gmail.com
+              victor.boghean15@gmail.com
             </Link>
           </div>
         </div>
