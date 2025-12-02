@@ -1,12 +1,16 @@
+"use client";
 import Image from "next/image";
 
 import { AppButton } from "@/components/shared/app-button";
 import { AppBadge } from "@/components/shared/app-badge";
+import { useScrollSection } from "@/lib/hooks/useScrollSection";
 
 import arrowDown from "@/assets/icons/arrow-down.svg";
 import email from "@/assets/icons/email.svg";
 
 export const Hero = () => {
+  const { goToSection } = useScrollSection();
+
   return (
     <section className="relative flex w-full flex-col items-center justify-start pt-14 pb-12 md:py-16">
       <AppBadge label={"Partenerul tău pentru soluții web inteligente"} indicator />
@@ -30,6 +34,7 @@ export const Hero = () => {
       <div className={"mt-8 flex flex-wrap gap-4 md:gap-8"}>
         <AppButton
           label={"Solicită o ofertă"}
+          linkRef={"tel:+37369640892"}
           icon={<Image src={email} alt="Email" className={"scale-90 md:scale-100"} />}
           iconPosition={"right"}
         />
@@ -37,6 +42,7 @@ export const Hero = () => {
           label={"Află mai multe"}
           icon={<Image src={arrowDown} alt="Arrow down" className={"scale-90 md:scale-100"} />}
           iconPosition={"right"}
+          onClick={() => goToSection("services")}
         />
       </div>
     </section>
