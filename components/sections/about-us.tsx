@@ -11,7 +11,7 @@ import star from "@/assets/icons/star.svg";
 
 export const AboutUs = () => {
   return (
-    <section className={"container flex flex-col justify-center py-12 md:py-16"}>
+    <section className={"container flex flex-col justify-center py-12 md:py-16"} id="about">
       <AppBadge label={"Despre noi"} icon={<Image src={quotes} alt={"Quotes"} />} className={"gap-1"} />
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-12">

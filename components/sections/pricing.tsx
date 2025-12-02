@@ -7,7 +7,7 @@ import pricing from "@/assets/icons/pricing.svg";
 
 export const Pricing = () => {
   return (
-    <section className={"container flex flex-col items-center justify-center py-12 md:py-16"}>
+    <section className={"container flex flex-col items-center justify-center py-12 md:py-16"} id={"pricing"}>
       <AppBadge label={"Pachete & Prețuri"} icon={<Image src={pricing} alt={"Pricing icon"} />} className={"gap-1"} />
       <h3 className={"section-heading mt-2 text-center"}>Planuri create pentru tine</h3>
 

@@ -7,7 +7,7 @@ import feather from "@/assets/icons/feather.svg";
 
 export const OurServices = () => {
   return (
-    <section className={"container flex flex-col items-center justify-center py-12 md:py-16"}>
+    <section className={"container flex flex-col items-center justify-center py-12 md:py-16"} id="services">
       <AppBadge label={"Serviciile noastre"} icon={<Image src={feather} alt={"Feather"} />} className={"gap-1"} />
       <h3 className={"section-heading mt-2 text-center"}>Soluții complete</h3>
 

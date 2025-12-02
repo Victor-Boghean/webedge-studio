@@ -7,18 +7,21 @@ import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 import { AppButton } from "@/components/shared/app-button";
+import { useScrollSection } from "@/lib/hooks/useScrollSection";
 
 import phoneWhite from "@/assets/icons/phone-white.svg";
 
 export const BurgerMenu = () => {
+  const { goToSection } = useScrollSection();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
 
-  const scrollToFooter = (e: MouseEvent<HTMLAnchorElement>) => {
+  const handleScroll = (e: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     closeMenu();
-    setTimeout(() => document.getElementById("footer")!.scrollIntoView({ behavior: "smooth" }), 500);
+    setTimeout(() => goToSection(sectionId), 500);
   };
 
   useEffect(() => {
@@ -59,19 +62,19 @@ export const BurgerMenu = () => {
         )}
       >
         <nav className="font-sora mt-4 flex flex-1 flex-col items-center gap-2 text-lg font-medium text-black/80">
-          <Link href="#despre" onClick={closeMenu} className="group default-transition py-2">
-            <span className="link">Despre noi</span>
-          </Link>
-          <Link href="#servicii" onClick={closeMenu} className="group default-transition py-2">
+          <Link href="/" onClick={(e) => handleScroll(e, "services")} className="group default-transition py-2">
             <span className="link">Servicii</span>
           </Link>
-          <Link href="#portofoliu" onClick={closeMenu} className="group default-transition py-2">
+          <Link href="/" onClick={(e) => handleScroll(e, "about")} className="group default-transition py-2">
+            <span className="link">Despre noi</span>
+          </Link>
+          <Link href="/" className="group default-transition py-2">
             <span className="link">Portofoliu</span>
           </Link>
-          <Link href="#preturi" onClick={closeMenu} className="group default-transition py-2">
+          <Link href="/" onClick={(e) => handleScroll(e, "pricing")} className="group default-transition py-2">
             <span className="link">Prețuri</span>
           </Link>
-          <Link href="/" onClick={scrollToFooter} className="group default-transition py-2">
+          <Link href="/" onClick={(e) => handleScroll(e, "footer")} className="group default-transition py-2">
             <span className="link">Contacte</span>
           </Link>
           <div className="mt-6">
